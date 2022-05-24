@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import chalk from 'chalk';
-import { ethers } from "ethers";
+import {ethers} from "ethers";
 
 //SETTINGS
 const initialIndex = 1000;
