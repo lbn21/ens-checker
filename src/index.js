@@ -21,7 +21,7 @@ const DICTIONARY_RAW = JSON.parse(fs.readFileSync(_DICTIONARY_FILE, 'utf8'));
 const DICTIONARY = [...DICTIONARY_RAW];
 
 //RPC PROVIDER
-const PROVIDER = new ethers.providers.JsonRpcProvider("http://207.180.218.208:8545", "homestead");
+const PROVIDER = new ethers.providers.JsonRpcProvider("http://localhost:8545", "homestead");
 
 //INIT
 checkEnsDomainByDictionary();
