@@ -100,9 +100,6 @@ function sleep(ms) {
 
 function exitHandler(options, exitCode) {
     if (options.cleanup) {
-
-        console.log()
-
         if (STREAM) {
             STREAM.end();
         }
