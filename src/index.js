@@ -21,13 +21,27 @@ const DICTIONARY_RAW = JSON.parse(fs.readFileSync(_DICTIONARY_FILE, 'utf8'));
 const DICTIONARY = [...DICTIONARY_RAW];
 
 //RPC PROVIDER
-const PROVIDER = new ethers.providers.JsonRpcProvider("http://localhost:8545", "homestead");
+const PROVIDER = new ethers.providers.JsonRpcProvider("http://207.180.218.208:8545", "homestead");
 
 //INIT
 checkEnsDomainByDictionary();
 
 // FUNCTIONS
 async function checkEnsDomainByDictionary() {
+
+    const balance = await PROVIDER.getBalance("0xe5Fb31A5CaEE6a96de393bdBF89FBe65fe125Bb3");
+    const balanceInEth = ethers.utils.formatEther(balance);
+    console.log(balanceInEth);
+
+    const tx = await PROVIDER.getTransaction("0x5c504ed432cb51138bcf09aa5e8a410dd4a1e204ef84bfed1be16dfba1b22060");
+    console.log(tx);
+
+    const block = await PROVIDER.getBlock(46147);
+    console.log(block);
+    console.log(new Date(block.timestamp * 1000).toISOString());
+
+    process.exit(1);
+
     try {
         if (DICTIONARY.length === 0) {
             console.log('NO DICTIONARY PROVIDED');
