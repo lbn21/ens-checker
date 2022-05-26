@@ -22,15 +22,18 @@ const network = "homestead";
 // Specify your own API keys
 // Each is optional, and if you omit it the default
 // API key for that service will be used.
-const PROVIDER = ethers.getDefaultProvider(network, {
-    etherscan: process.env.ETHERSCAN_API_KEY,
-    infura: process.env.INFURA_PROJECT_ID,
-    alchemy: process.env.ALCHEMY_API_KEY,
-    pocket: {
-        applicationId: process.env.POCKET_APPLICATION_ID,
-        applicationSecretKey: process.env.POCKET_APPLICATION_SECRET,
-    }
-});
+// const PROVIDER = ethers.getDefaultProvider(network, {
+//     etherscan: process.env.ETHERSCAN_API_KEY,
+//     infura: process.env.INFURA_PROJECT_ID,
+//     alchemy: process.env.ALCHEMY_API_KEY,
+//     pocket: {
+//         applicationId: process.env.POCKET_APPLICATION_ID,
+//         applicationSecretKey: process.env.POCKET_APPLICATION_SECRET,
+//     }
+// });
+
+//INFURA WSS
+const PROVIDER = new ethers.providers.InfuraWebSocketProvider(network, process.env.INFURA_PROJECT_ID);
 
 //CONTRACT SETUP
 //https://etherscan.io/address/0x00000000000c2e074ec69a0dfb2997ba6c7d2e1e#code
